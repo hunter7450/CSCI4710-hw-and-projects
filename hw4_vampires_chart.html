@@ -1,0 +1,69 @@
+<!--
+    Cristian Figueiredo
+    CSCI-4710
+    3/5/2024
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <style>
+
+        body{
+            background-color: #D9E0FF;
+        }
+
+        /* Left off here */
+        .grey{
+            background-color: #9FA0A5;
+            color: black;
+        }
+
+    </style>
+
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(genPieChart);
+
+        var human_students = 10;
+        var vamp_students = 4;
+
+        function genPieChart() {
+
+            var data = new google.visualization.DataTable();
+
+            data.addColumn('string', 'Element');
+            data.addColumn('number', 'Number');
+            data.addRows([['Human(s): ' + human_students, human_students],
+                          ['Vampire(s) ' + vamp_students, vamp_students]])
+
+            var options = {'title':'Number of vampires in the class', 
+                           'width':400,
+                           'height':300,
+                           'colors':['#27ff00', '#ff0000']};
+
+            var pie_chart = new google.visualization.PieChart(document.getElementById('pie_chart_div'));
+            pie_chart.draw(data, options);
+        }
+
+        pie_chart.draw(data, options);
+    </script>
+</head>
+
+
+<body>
+
+    <p>Ratio of vampires to humans in the class:</p>
+    <div class="grey" id='pie_chart_div'></div>
+
+    <p>Not a ton of vampires, huh?</p>
+
+</body>
+
+
+</html>
